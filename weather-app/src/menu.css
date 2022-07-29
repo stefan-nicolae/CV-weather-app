@@ -1,0 +1,30 @@
+.menu {
+    margin-top: -20%;
+    min-width: 400px;
+}
+
+.menu section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu section div:first-of-type {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu input {
+    width: 100%;
+    background-color: black;
+    border: none;
+    height: 30px;
+    padding: 0 10px;
+}
+
+.menu input:focus {
+    outline: none;
+}
+
+.set-c-f {
+    cursor: pointer;
+}

@@ -1,0 +1,42 @@
+.days {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.days-loading {
+    justify-content: center;
+}
+
+.day-span {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5%;
+    min-width: 65px;
+    text-align: center;
+}
+
+.day-span.invalid span {
+    color: gray;
+}
+
+.day-span span:first-of-type {
+    font-size: x-large;
+}
+
+.day-span:nth-of-type(1), .day-span:nth-of-type(8) {
+    margin-top: -25%;
+}
+
+.day-span:nth-of-type(2), .day-span:nth-of-type(7) {
+    margin-top: -12%;
+}
+
+.day-span:nth-of-type(3), .day-span:nth-of-type(6) {
+    margin-top: -4%;
+}
+
+.day-span:nth-of-type(4), .day-span:nth-of-type(5) {
+    
+}
