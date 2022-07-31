@@ -1,8 +1,17 @@
+:root {
+    --highlighted: turquoise;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    font-size: 2vh;
+}
+
+body {
+    background-color: rgb(18, 18, 18);
 }
 
 .container {
@@ -25,7 +34,7 @@
     border: 0.1vh solid rgb(63, 63, 63);
     align-self: center;
     margin: auto;
-    border-radius: 1000px;
+    border-radius: 1000vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -34,4 +43,14 @@
 
 .big-circle * {
     color: white;
+}
+
+@media screen and (max-width: 600px) {
+
+    .big-circle {
+        width: 100%;
+        border: unset;
+        border-radius: unset;
+        height: 100vh;
+    }
 }

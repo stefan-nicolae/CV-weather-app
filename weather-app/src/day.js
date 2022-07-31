@@ -1,8 +1,16 @@
+import { useEffect } from "react"
+
 export default function Day (props) {
-    console.log(props.CF)
+    const highlighted = getComputedStyle(document.documentElement).getPropertyValue("--highlighted")
+
+    useEffect(() => {
+        document.querySelectorAll(".day-span")[0].childNodes.forEach(e => {
+            e.style.color = highlighted
+        })
+    }, [])
     return (
     <div 
-    onClick={() => props.setData(props.data)}
+    onClick={(event) => props.setData(props.data, event)}
     className={props.data ? "day-span" : "day-span invalid"}>
         <span>{props.day}</span>
         <span><img src={props.data ? props.data.day.condition.icon : undefined}></img></span>

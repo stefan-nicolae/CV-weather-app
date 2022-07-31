@@ -1,6 +1,6 @@
 .menu {
     margin-top: -20%;
-    min-width: 400px;
+    min-width: 50vh;
 }
 
 .menu section {
@@ -14,11 +14,11 @@
 }
 
 .menu input {
-    width: 100%;
+    width: 50vh;
     background-color: black;
     border: none;
-    height: 30px;
-    padding: 0 10px;
+    height: 5vh;
+    padding: 0 1vh;
 }
 
 .menu input:focus {
@@ -27,4 +27,18 @@
 
 .set-c-f {
     cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .menu {
+        min-width: unset;
+    }
+
+    .menu input {
+        width: 80vw;
+        background-color: black;
+        border: none;
+        height: 5vh;
+        padding: 0 1vh;
+    }
 }
