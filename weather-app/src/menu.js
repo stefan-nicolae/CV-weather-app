@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export default function Days(props) {
     const data = props.data
     const highlighted = getComputedStyle(document.documentElement).getPropertyValue("--highlighted")
-    const location = props.location
+    const location = props.locationName
 
     useEffect(() => {
          document.querySelectorAll(".set-c-f")[0].style.color = highlighted

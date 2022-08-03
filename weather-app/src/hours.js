@@ -1,7 +1,6 @@
 import "./hours.css"
 
 export default function Hours (props) {
-    console.log(props.data)
     const hours = [], d = new Date()
     let currentHour = d.getHours()
     for(let i = 0; i < 8; i++) {
@@ -14,7 +13,7 @@ export default function Hours (props) {
         {hours.map(hour => {
             return(        
 
-            <div key={index++} className="hour-span">
+            <div key={index++} className="hour-div">
                 <span>{hour}</span>
                 <span>{props.CF === "C" ? props.data.hour[hour].temp_c : props.data.hour[hour].temp_f}°</span>
                 <span>feels {props.CF === "C" ? props.data.hour[hour].feelslike_c : props.data.hour[hour].feelslike_f}°</span>

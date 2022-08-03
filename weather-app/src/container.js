@@ -1,7 +1,7 @@
 import Hours from "./hours.js"
 import Days from "./days.js"
 import Menu from "./menu.js"
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 //weatherapi.com
@@ -31,13 +31,14 @@ function locationToCoords(locationName) {
  
 export default function Container () {
     //contains the selected day's weather data
-    const [state, setState] = useState(undefined)
+    const [selectedDayWeather, setSelectedDayWeather] = useState(undefined)
     //contains just the location NAME displayed
-    const [location, setLocation] = useState(undefined)
+    const [locationName, setLocationName] = useState(undefined)
     const [CF, setCF] = useState("C")
     //contains all the weather data for today and a few days after
     const weatherData = useRef() 
     const highlighted = getComputedStyle(document.documentElement).getPropertyValue("--highlighted")
+
 
     //sets the actual location 
     const setTargetPlace = (latitude, longitude) => {
@@ -49,8 +50,8 @@ export default function Container () {
             coordsToLocation(latitude, longitude).then(res => {
                 if(res.status === "OK") 
                 {
-                    setLocation(res.results[0].formatted_address)
-                    setState(json.forecast.forecastday[0])
+                    setLocationName(res.results[0].formatted_address)
+                    setSelectedDayWeather(json.forecast.forecastday[0])
                 }
             })
         })
@@ -81,7 +82,7 @@ export default function Container () {
     //changes the days
     const setData = (data, event) => {
         if(event.currentTarget.className.includes("invalid")) return
-        document.querySelectorAll(".day-span").forEach(span => {
+        document.querySelectorAll(".day-div").forEach(span => {
             if(span.className.includes("invalid")) return
             span.childNodes.forEach(e => {
                 e.style.color = "unset"
@@ -91,7 +92,7 @@ export default function Container () {
             e.style.color = highlighted
         })
         if(data === undefined) return
-        setState(data)
+        setSelectedDayWeather(data)
     }
 
     const setF = () => {
@@ -110,13 +111,13 @@ export default function Container () {
         setCF("C")
     }
 
-    return (state && location) ? (
+    return (selectedDayWeather && locationName) ? (
         <div className="container">
             <div className="big-circle">
                 {/* hours element */}
-                <Hours data={state} CF={CF}/>
+                <Hours data={selectedDayWeather} CF={CF}/>
                 {/* menu element */}
-                <Menu data={state} setF={setF} setC={setC} CF={CF} location={location} searchLocation={searchLocation}/>
+                <Menu data={selectedDayWeather} setF={setF} setC={setC} CF={CF} locationName={locationName} searchLocation={searchLocation}/>
                 {/* days element */}
                 <Days weatherData={weatherData.current} setData={setData} CF={CF}/>
             </div>
