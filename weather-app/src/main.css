@@ -13,6 +13,7 @@
 
 body {
     background-color: rgb(18, 18, 18);
+    filter: brightness(1.7);
 }
 
 .container {
