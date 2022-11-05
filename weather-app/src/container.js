@@ -43,7 +43,7 @@ export default function Container () {
     //sets the actual location 
     const setTargetPlace = (latitude, longitude) => {
         //free trial will not return more than three days including today
-        fetch(`http://api.weatherapi.com/v1/forecast.json?key=${APIkey}&q=${latitude},${longitude}&days=8`)
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${APIkey}&q=${latitude},${longitude}&days=8`)
         .then(res => res.json())
         .then(json => {
             weatherData.current = json
