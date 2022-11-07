@@ -9,11 +9,11 @@
 }
 
 .menu > section > div > span {
-    margin-bottom: 2px;
+    margin-bottom: 0.3vh;
 }
 
 .menu > header > * {
-    margin-bottom: 2px;
+    margin-bottom: 0.3vh;
 }
 
 .menu section div:first-of-type {
@@ -27,7 +27,7 @@
     border: none;
     height: 5vh;
     padding: 0 1vh;
-    border-radius: 8px;
+    border-radius: 1vh;
 }
 
 .menu input:focus {
