@@ -8,6 +8,14 @@
     justify-content: space-between;
 }
 
+.menu > section > div > span {
+    margin-bottom: 2px;
+}
+
+.menu > header > * {
+    margin-bottom: 2px;
+}
+
 .menu section div:first-of-type {
     display: flex;
     flex-direction: column;
@@ -19,6 +27,7 @@
     border: none;
     height: 5vh;
     padding: 0 1vh;
+    border-radius: 8px;
 }
 
 .menu input:focus {
