@@ -1,5 +1,5 @@
 import "./menu.css"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Days(props) {
     const data = props.data

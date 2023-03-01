@@ -37,17 +37,3 @@
 .set-c-f {
     cursor: pointer;
 }
-
-@media screen and (max-width: 600px) {
-    .menu {
-        min-width: unset;
-    }
-
-    .menu input {
-        width: 80vw;
-        background-color: black;
-        border: none;
-        height: 5vh;
-        padding: 0 1vh;
-    }
-}

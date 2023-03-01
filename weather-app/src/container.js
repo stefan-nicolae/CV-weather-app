@@ -3,14 +3,10 @@ import Days from "./days.js"
 import Menu from "./menu.js"
 import { useEffect, useRef, useState } from "react";
 
-
-//weatherapi.com
 const APIkey = "ebbc6edec89748129ec185456221407" 
-//google geocoding api
 const GEOkey = "AIzaSyAIfwB5a40jpDuAnWFffeuE7GWa9F_KS30"
 
 function getCurrentLatLong(callback, message) {
-    if(message) console.log(message)
     let latitude, longitude
     navigator.geolocation.getCurrentPosition(position => {
         latitude = position.coords.latitude
@@ -30,19 +26,13 @@ function locationToCoords(locationName) {
 }
  
 export default function Container () {
-    //contains the selected day's weather data
     const [selectedDayWeather, setSelectedDayWeather] = useState(undefined)
-    //contains just the location NAME displayed
     const [locationName, setLocationName] = useState(undefined)
     const [CF, setCF] = useState("C")
-    //contains all the weather data for today and a few days after
     const weatherData = useRef() 
     const highlighted = getComputedStyle(document.documentElement).getPropertyValue("--highlighted")
 
-
-    //sets the actual location 
     const setTargetPlace = (latitude, longitude) => {
-        //free trial will not return more than three days including today
         fetch(`https://api.weatherapi.com/v1/forecast.json?key=${APIkey}&q=${latitude},${longitude}&days=8`)
         .then(res => res.json())
         .then(json => {
@@ -57,7 +47,6 @@ export default function Container () {
         })
     }
     
-    //input, if it finds said location it will change it
     const searchLocation = (event) => {
         const value = event.currentTarget.value
         if(event.code !== "Enter") return
@@ -78,8 +67,6 @@ export default function Container () {
         })
     }, [])
 
-
-    //changes the days
     const setData = (data, event) => {
         if(event.currentTarget.className.includes("invalid")) return
         document.querySelectorAll(".day-div").forEach(span => {
@@ -114,11 +101,8 @@ export default function Container () {
     return (selectedDayWeather && locationName) ? (
         <div className="container">
             <div className="big-circle">
-                {/* hours element */}
                 <Hours data={selectedDayWeather} CF={CF}/>
-                {/* menu element */}
                 <Menu data={selectedDayWeather} setF={setF} setC={setC} CF={CF} locationName={locationName} searchLocation={searchLocation}/>
-                {/* days element */}
                 <Days weatherData={weatherData.current} setData={setData} CF={CF}/>
             </div>
         </div>
