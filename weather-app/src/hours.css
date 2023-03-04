@@ -19,3 +19,14 @@
     font-size: 2.5vh;
 }
 
+.hour-div:nth-of-type(1), .hour-div:nth-of-type(8) {
+    margin-top: 25%;
+}
+
+.hour-div:nth-of-type(2), .hour-div:nth-of-type(7) {
+    margin-top: 12%;
+}
+
+.hour-div:nth-of-type(3), .hour-div:nth-of-type(6) {
+    margin-top: 4%;
+}
