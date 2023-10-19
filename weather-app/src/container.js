@@ -3,8 +3,8 @@ import Days from "./days.js"
 import Menu from "./menu.js"
 import { useEffect, useRef, useState } from "react";
 
-const APIkey = "ebbc6edec89748129ec185456221407" 
-const GEOkey = "AIzaSyAIfwB5a40jpDuAnWFffeuE7GWa9F_KS30"
+const APIkey = process.env.APIkey
+const GEOkey = process.env.GEOkey
 
 function getCurrentLatLong(callback, message) {
     let latitude, longitude
