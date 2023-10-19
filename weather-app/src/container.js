@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 const APIkey = process.env.REACT_APP_APIkey
 const GEOkey = process.env.REACT_APP_GEOkey
 
+
 function getCurrentLatLong(callback, message) {
     let latitude, longitude
     navigator.geolocation.getCurrentPosition(position => {
