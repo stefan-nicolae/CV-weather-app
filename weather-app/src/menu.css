@@ -23,11 +23,12 @@
 
 .menu input {
     width: 50vh;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.1);
     border: none;
     height: 5vh;
     padding: 0 1vh;
     border-radius: 1vh;
+
 }
 
 .menu input:focus {

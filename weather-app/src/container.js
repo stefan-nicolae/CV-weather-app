@@ -31,7 +31,6 @@ export default function Container () {
     const [locationName, setLocationName] = useState(undefined)
     const [CF, setCF] = useState("C")
     const weatherData = useRef() 
-    const highlighted = getComputedStyle(document.documentElement).getPropertyValue("--highlighted")
 
     const setTargetPlace = (latitude, longitude) => {
         fetch(`https://api.weatherapi.com/v1/forecast.json?key=${APIkey}&q=${latitude},${longitude}&days=8`)
@@ -66,6 +65,10 @@ export default function Container () {
                 e.preventDefault()
             })
         })
+
+        document.addEventListener('click', ()=>{
+            document.querySelector("input").focus()
+        })
     }, [])
 
     const setData = (data, event) => {
@@ -73,11 +76,11 @@ export default function Container () {
         document.querySelectorAll(".day-div").forEach(span => {
             if(span.className.includes("invalid")) return
             span.childNodes.forEach(e => {
-                e.style.color = "unset"
+                e.classList.remove("highlight")
             })
         })
         event.currentTarget.childNodes.forEach(e => {
-            e.style.color = highlighted
+            e.classList.add("highlight")
         })
         if(data === undefined) return
         setSelectedDayWeather(data)
@@ -85,17 +88,17 @@ export default function Container () {
 
     const setF = () => {
         document.querySelectorAll(".set-c-f").forEach(span => {
-            span.style.color = "unset"
+            span.classList.remove("highlight")
         })
-        document.querySelectorAll(".set-c-f")[1].style.color = highlighted
+        document.querySelectorAll(".set-c-f")[1].classList.add("highlight")
         setCF("F")
     }
 
     const setC = () => {
         document.querySelectorAll(".set-c-f").forEach(span => {
-            span.style.color = "unset"
+            span.classList.remove("highlight")
         })
-        document.querySelectorAll(".set-c-f")[0].style.color = highlighted
+        document.querySelectorAll(".set-c-f")[0].classList.add("highlight")
         setCF("C")
     }
 

@@ -1,13 +1,12 @@
 import "./menu.css"
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Days(props) {
     const data = props.data
-    const highlighted = getComputedStyle(document.documentElement).getPropertyValue("--highlighted")
     const location = props.locationName
-
+    
     useEffect(() => {
-         document.querySelectorAll(".set-c-f")[0].style.color = highlighted
+        document.querySelectorAll(".set-c-f")[0].classList.add("highlight")
     }, [])
 
     return (<div className="menu">
@@ -25,6 +24,6 @@ export default function Days(props) {
             <h1>{data.day.condition.text}</h1>
             <h2>{location}</h2>
         </header>
-        <input onKeyUp={event => props.searchLocation(event)} type="text" placeholder="Search location..."></input>
+        <input autoFocus onKeyUp={event => props.searchLocation(event)} type="text" placeholder="Type location, press Enter... (free API only allows for 3 days)"></input>
     </div>)
 }
